@@ -1,4 +1,4 @@
-USE zomato_project;
+USE Food_application;
 
 SELECT * FROM users;
 SELECT * FROM sales;
