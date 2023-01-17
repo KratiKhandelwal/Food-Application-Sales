@@ -77,10 +77,10 @@ on a.userid = b.userid and created_date<=gold_signup_date
 group by userid;
 
 
---  9. If buying each product generates points for eg - 5Rs = 2 zomato point and each product have diff purchasing point 
--- p1 5rs = 1 zomato point 
--- p2 10rs = 5  zomato point
--- p3  5rs = 1 zomato point 
+--  9. If buying each product generates points for eg - 5Rs = 2 voucher point and each product have diff purchasing point 
+-- p1 5rs = 1 voucher point 
+-- p2 10rs = 5  voucher point
+-- p3  5rs = 1 voucher point 
 -- Calculate points collected by eacch customer ?
  
 SELECT userid , SUM(total_points) points from (
@@ -93,7 +93,7 @@ GROUP BY userid;
 
 
 -- 10. In the first one year after a customer joins a gold program ( including their join date) irrespective of what the 
--- customer has purchased they earn 5 zomato points for every 10 rs spent who earned more 1 or 3 and what was their 
+-- customer has purchased they earn 5 voucher points for every 10 rs spent who earned more 1 or 3 and what was their 
 -- points earnings in their first year ?
 
 SELECT userid , sum(points)*0.5 total_points from (
@@ -107,7 +107,7 @@ group by userid;
 
 SELECT * , rank()over (partition by userid order by created_date) rnk from sales;
 
--- 11. Rank all the transaction of each member whenever they are a zomato gold member for every non gold 
+-- 11. Rank all the transaction of each member whenever they are a gold member for every non gold 
 -- member transaction mark as na 
 
 
